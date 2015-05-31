@@ -17,6 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self loadHomepage];
+}
+
+- (void) loadHomepage
+{
+    NSString* url = @"http://rickyayoub.com";
+    [self.mainView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
 
 - (void)didReceiveMemoryWarning {
