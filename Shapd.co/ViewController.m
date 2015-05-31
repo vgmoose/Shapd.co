@@ -17,14 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    _bundlePath = [[[NSBundle mainBundle] bundleURL] absoluteString];
     
     [self loadHomepage];
 }
 
 - (void) loadHomepage
 {
-    NSString* url = @"http://rickyayoub.com";
-    [self.mainView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"webapp"];
+    [self.mainView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
 }
 
 - (void)didReceiveMemoryWarning {
